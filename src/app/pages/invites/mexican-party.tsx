@@ -14,7 +14,7 @@ import {
 	Slogan,
 	Title,
 	Trophy
-} from './styles'
+} from '../../styles'
 import HatAndMustache from '../assets/images/hat-and-mustache.png'
 import ChiliImg from '../assets/images/chili.png'
 import CactusImg from '../assets/images/cactus-plant.png'
@@ -29,12 +29,11 @@ import MaracasImg from '../assets/images/mexico-traditional-culture.png'
 import CactusAndChiliImg from '../assets/images/cactus-and-red-chili-playing-music.png'
 import TacoAvocadoImg from '../assets/images/taco-and-avocado-food.png'
 import HatImg from '../assets/images/sombrero-hat.png'
-import Timer from './timer'
+import Timer from '../../timer'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
-import { Input } from './components/input'
+import { Input } from '../../components/input'
 import ConfettiExplosion from 'react-confetti-explosion'
-import sountrack from '../assets/audio/soundtrack.mp3'
-import { User, getUsers, saveUser } from '../firebase/app'
+import { User, getUsers, saveUser } from '../../../firebase/app'
 
 const confetti = {
 	force: 0.8,
