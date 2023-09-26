@@ -83,9 +83,9 @@ const Home = () => {
 
 	return (
 		<>
-			<audio id="player" autoPlay loop>
+			{/* <audio id="player" autoPlay loop>
 				<source src={sountrack} type="audio/mp3" />
-			</audio>
+			</audio> */}
 			<MainLayout>
 				<Chili className="img-shadow" src={ChiliImg} alt="chili" />
 				<Cactus className="img-shadow" src={CactusImg} alt="cactus" />
