@@ -23,6 +23,10 @@ export type User = { name?: string; phone?: string }
 export async function getUsers(): Promise<User[]> {
 	let usersList = []
 
+	if (JSON.parse(localStorage.getItem('users') || '[]')?.length) {
+		return JSON.parse(localStorage.getItem('users') || '[]')
+	}
+
 	const users = collection(db, 'mexican-party')
 	const usersSnapshot = await getDocs(users)
 	usersList = usersSnapshot.docs.map((doc) => doc.data())

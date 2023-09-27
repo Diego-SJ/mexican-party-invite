@@ -223,5 +223,6 @@ export const Form = styled.div`
 `
 
 export const Confetti = styled.div`
-	align-self: center;
+	position: relative;
+	transform: translateX(50%);
 `

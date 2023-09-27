@@ -1,11 +1,17 @@
 import { createGlobalStyle } from 'styled-components'
 import MexicanTequila from '../assets/fonts/MexicanTequila.ttf'
+import Lithos from '../assets/fonts/Lithos.otf'
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
-        font-family: 'MexicanTequila';
-        src: url(${MexicanTequila});
-    }
+  font-family: 'MexicanTequila';
+  src: url(${MexicanTequila});
+}
+
+@font-face {
+  font-family: 'Lithos';
+  src: url(${Lithos});
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

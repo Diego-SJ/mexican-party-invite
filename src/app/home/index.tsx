@@ -1,16 +1,12 @@
-import { Button, TemporaryBg } from './styles'
+import { Button, MediaBtn, MediaButtons, TemporaryBg, TitleContainer } from './styles'
 import Particles from 'react-particles'
 import { useCallback } from 'react'
 import { loadSlim } from 'tsparticles-slim'
 import HappyHopLogo from '../../assets/images/happy-hop.png'
+import { FacebookSvg, InstagramSvg, TiktokSvg, WhatsappSvg } from './icons'
 
 const LadingPage = () => {
 	const particlesInit = useCallback(async (engine: any) => {
-		console.log(engine)
-		// you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-		// this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-		// starting from v2 you can add only the features you need reducing the bundle size
-		//await loadFull(engine);
 		await loadSlim(engine)
 	}, [])
 
@@ -18,19 +14,53 @@ const LadingPage = () => {
 		await console.log(container)
 	}, [])
 
-	const onClick = () => {
-		window.open('https://www.google.com', '_blank')
+	const onClick = (path: string) => {
+		window.open(path, '_blank')
 	}
 
 	return (
-		<>
-			<TemporaryBg>
+		<TemporaryBg>
+			<TitleContainer>
 				<img src={HappyHopLogo} alt="happy hop" />
-				{/* <TitleContainer>
-					<Title>¡Bienvenido a Happy Hop!</Title>
-				</TitleContainer> */}
-				<Button onClick={onClick}>¡Contactanos!</Button>
-			</TemporaryBg>
+				<Button
+					onClick={() =>
+						onClick(
+							'https://api.whatsapp.com/send/?phone=527731718702&text=¡Hola!+Me+gustaria+saber+más+sobre+el+servicio'
+						)
+					}
+				>
+					¡Contactanos!
+				</Button>
+				<MediaButtons>
+					<MediaBtn
+						className="facebook"
+						onClick={() => onClick('https://www.facebook.com/profile.php?id=61551806553265')}
+					>
+						<FacebookSvg />
+					</MediaBtn>
+					<MediaBtn
+						className="instagram"
+						onClick={() => onClick('https://instagram.com/happy_hop_inflable')}
+					>
+						<InstagramSvg />
+					</MediaBtn>
+					<MediaBtn
+						className="tiktok"
+						onClick={() => onClick('https://www.tiktok.com/@happy.hop4')}
+					>
+						<TiktokSvg />
+					</MediaBtn>
+					<MediaBtn
+						onClick={() =>
+							onClick(
+								'https://api.whatsapp.com/send/?phone=527731718702&text=¡Hola!+Me+gustaria+saber+más+sobre+el+servicio'
+							)
+						}
+					>
+						<WhatsappSvg />
+					</MediaBtn>
+				</MediaButtons>
+			</TitleContainer>
 			<Particles
 				id="tsparticles"
 				init={particlesInit}
@@ -66,7 +96,8 @@ const LadingPage = () => {
 								'#F45623',
 								'#D62E32',
 								'#EB586E',
-								'#9952CF'
+								'#9952CF',
+								'#f8f8f8'
 							]
 						},
 						move: {
@@ -130,7 +161,7 @@ const LadingPage = () => {
 					detectRetina: true
 				}}
 			/>
-		</>
+		</TemporaryBg>
 	)
 }
 
