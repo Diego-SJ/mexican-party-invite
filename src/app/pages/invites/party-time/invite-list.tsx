@@ -1,5 +1,5 @@
 import Particles from 'react-particles'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { loadSlim } from 'tsparticles-slim'
 import {
 	Avatar,
@@ -15,18 +15,18 @@ import {
 } from './styles'
 import BounceBall from '../../../components/bounce-ball'
 import PoweredBy from '../../../components/powered-by'
-import { User, getUsers } from '../../../../firebase/app'
+import useConfirmationForm from '../../../../hooks/useConfirmationForm'
+import { User } from '../../../../firebase/app'
 
 const PartyTimeInviteList = () => {
-	const [storedUsers, setStoredUsers] = useState<User[]>([])
+	const { actions, users = [] } = useConfirmationForm()
 	const rendered = useRef<boolean>(false)
 
 	useEffect(() => {
 		if (!rendered.current) {
 			;(async () => {
 				rendered.current = true
-				const result = await getUsers()
-				setStoredUsers(result)
+				actions.fetchUsers()
 			})()
 		}
 	}, [])
@@ -193,13 +193,13 @@ const PartyTimeInviteList = () => {
 						<BounceBall color={PALLETE.green} />
 					</PrimaryCopy>
 					<PrimaryCopy>
-						TOTAL: <span className="green">{storedUsers?.length}</span>
+						TOTAL: <span className="green">{users?.length}</span>
 					</PrimaryCopy>
 
 					<UserList>
-						{storedUsers
+						{users
 							?.filter((i) => !!i?.phone)
-							?.map((user) => (
+							?.map((user: User) => (
 								<UserCard
 									key={user?.phone}
 									onClick={() => onClick(`https://api.whatsapp.com/send/?phone=52${user?.phone}`)}
