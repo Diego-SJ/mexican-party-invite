@@ -1,4 +1,5 @@
 import {
+	ASTRO_THEME,
 	AstroPartyContent,
 	AstroPartyRoot,
 	BodyText,
@@ -16,6 +17,7 @@ import Ufo from './assets/Ufo'
 import Rocket from './assets/Rocket'
 import CustomCanvas from './custom-canvas'
 import useMediaQuery from '../../../../hooks/useMediaQueries'
+import ConfirmationForm from '../../../components/confirmation-form'
 
 const AstroParty = () => {
 	const { isTablet } = useMediaQuery()
@@ -91,6 +93,14 @@ const AstroParty = () => {
 				</CustomCanvas>
 				<BodyText>Confirmanos tu Astroasistencia</BodyText>
 
+				<ConfirmationForm
+					margin={{ top: '10rem' }}
+					font="Nasa"
+					locationUrl="https://maps.app.goo.gl/zdSUicChCjNbJbAJ8"
+					inviteId="general_test"
+					textShadow={false}
+					colors={{ secondary: ASTRO_THEME.secondary, primary: ASTRO_THEME.secondary }}
+				/>
 				<Image src={AstronautMoonPng} alt="astronauta" className="astronaut-3" />
 			</AstroPartyContent>
 		</AstroPartyRoot>

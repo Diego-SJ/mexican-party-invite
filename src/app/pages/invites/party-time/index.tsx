@@ -2,39 +2,22 @@ import Particles from 'react-particles'
 import { useCallback, useRef } from 'react'
 import { loadSlim } from 'tsparticles-slim'
 import {
-	ActionsButtons,
-	Button,
 	Char,
 	DateContainer,
 	DateTimeContainer,
-	Input,
 	PALLETE,
 	PartyTimeContainer,
 	PartyTimeRoot,
 	PartyTimeTitle,
-	PrimaryCopy,
-	SecondaryCopy,
-	Form,
-	ImagePartyPopper
+	PrimaryCopy
 } from './styles'
 import BounceBall from '../../../components/bounce-ball'
 import PoweredBy from '../../../components/powered-by'
-import PartyPopperImg from '../../../../assets/images/party-popper.png'
 import { Bounce } from 'react-awesome-reveal'
-import ConfettiExplosion from 'react-confetti-explosion'
-import { Confetti } from '../../../styles'
-import useConfirmationForm from '../../../../hooks/useConfirmationForm'
-
-const confetti = {
-	force: 0.8,
-	duration: 4000,
-	particleCount: 700,
-	width: 2000,
-	height: 1000
-}
+import ConfirmationForm from '../../../components/confirmation-form'
 
 const PartyTime = () => {
-	const { showConfetti, showForm, showButton, loading, form } = useConfirmationForm()
+	// const { showConfetti, showForm, showButton, loading, form } = useConfirmationForm()
 	const bottom = useRef<HTMLLabelElement>(null)
 
 	const particlesInit = useCallback(async (engine: any) => {
@@ -44,10 +27,6 @@ const PartyTime = () => {
 	const particlesLoaded = useCallback(async (container: any) => {
 		console.log(await container)
 	}, [])
-
-	const onLocationClick = () => {
-		window.open('https://maps.app.goo.gl/zdSUicChCjNbJbAJ8', '_blank')
-	}
 
 	return (
 		<PartyTimeRoot>
@@ -217,45 +196,10 @@ const PartyTime = () => {
 						</DateContainer>
 						<BounceBall />
 					</DateTimeContainer>
-
-					{showConfetti && (
-						<>
-							<Confetti>
-								<ConfettiExplosion {...confetti} />
-							</Confetti>
-							<ImagePartyPopper src={PartyPopperImg} alt="party popper" />
-							<SecondaryCopy className="pink mb-1">¡Ya estás dentro!</SecondaryCopy>
-							<Button onClick={onLocationClick}>¡Ver ubicación!</Button>
-						</>
-					)}
-					{showForm && (
-						<Form>
-							<SecondaryCopy className="mb-1">¡Anotate!</SecondaryCopy>
-							<Input {...form.data.name} />
-							<Input {...form.data.phone} />
-							<ActionsButtons>
-								<Button
-									onClick={form.submit}
-									className="bg-green"
-									disabled={form.disableButton || loading}
-								>
-									{loading ? 'Enviando...' : '¡Confirmar!'}
-								</Button>
-							</ActionsButtons>
-						</Form>
-					)}
-
-					{showButton && (
-						<>
-							<SecondaryCopy className="mb-1">
-								¡No faltes!
-								<BounceBall color={PALLETE.yellow} />
-							</SecondaryCopy>
-							<ActionsButtons>
-								<Button onClick={form.open}>¡Confirmar asistencia!</Button>
-							</ActionsButtons>
-						</>
-					)}
+					<ConfirmationForm
+						locationUrl="https://maps.app.goo.gl/zdSUicChCjNbJbAJ8"
+						inviteId="general_test"
+					/>
 				</Bounce>
 				<span ref={bottom}></span>
 				<PoweredBy />
