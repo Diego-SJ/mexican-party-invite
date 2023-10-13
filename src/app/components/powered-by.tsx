@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import LogoPng from '../../assets/images/happy-hop.png'
-import { PALLETE } from '../pages/party-time/styles'
+import { PALLETE } from '../pages/invites/party-time/styles'
 
 const PoweredByRoot = styled.div`
 	display: flex;
@@ -37,7 +37,7 @@ const Logo = styled.img`
 
 const PoweredBy = () => {
 	return (
-		<PoweredByRoot>
+		<PoweredByRoot className="powered-by">
 			<p className="title">Powered by</p>
 			<Link to="/">
 				<Logo className="powered-by_logo" src={LogoPng} alt="happy hop" />

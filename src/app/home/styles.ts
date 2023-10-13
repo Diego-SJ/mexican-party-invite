@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { PALLETE } from '../pages/party-time/styles'
+import { PALLETE } from '../pages/invites/party-time/styles'
 
 export const TemporaryBg = styled.div`
 	min-width: 100vw;

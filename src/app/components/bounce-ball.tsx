@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { PALLETE } from '../pages/party-time/styles'
+import { PALLETE } from '../pages/invites/party-time/styles'
 
 const bounce = keyframes`
   0% {

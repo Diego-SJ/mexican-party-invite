@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import MexicanTequila from '../assets/fonts/MexicanTequila.ttf'
 import Lithos from '../assets/fonts/Lithos.otf'
+import Nasa from '../assets/fonts/nasa.ttf'
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -12,6 +13,12 @@ const GlobalStyle = createGlobalStyle`
   font-family: 'Lithos';
   src: url(${Lithos});
 }
+
+@font-face {
+  font-family: 'Nasa';
+  src: url(${Nasa});
+}
+
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -67,6 +74,38 @@ z-index: 1;
 
 .mt-4 {
   margin-top: 4rem;
+}
+
+.invite-layout {
+  position: relative;
+  min-width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.invite-content {
+  height: 100%;
+  min-height: 100vh;
+  min-width: 45rem;
+	max-width: 80rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  position: relative;
+}
+
+.relative {
+  position: relative !important;
+}
+
+.f-kalam {
+  font-family: 'Kalam' !important;
 }
 `
 

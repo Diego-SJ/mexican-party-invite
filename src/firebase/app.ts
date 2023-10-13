@@ -19,11 +19,11 @@ if (!getApps()?.length) {
 const db = getFirestore(app)
 
 // get users
-export type User = { name?: string; phone?: string }
-export async function getUsers(): Promise<User[]> {
+export type User = { name?: string; phone?: string; inviteId?: string }
+export async function getUsers({ refetch = false }): Promise<User[]> {
 	let usersList = []
 
-	if (JSON.parse(localStorage.getItem('users') || '[]')?.length) {
+	if (JSON.parse(localStorage.getItem('users') || '[]')?.length && !refetch) {
 		return JSON.parse(localStorage.getItem('users') || '[]')
 	}
 
@@ -39,7 +39,7 @@ export async function getUsers(): Promise<User[]> {
 export async function saveUser(user: User): Promise<boolean> {
 	try {
 		await addDoc(collection(db, 'mexican-party'), user)
-		await getUsers()
+		await getUsers({ refetch: true })
 		return true
 	} catch (error) {
 		console.log({ error })
