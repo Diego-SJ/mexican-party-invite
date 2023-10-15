@@ -13,6 +13,7 @@ type Props = {
 	inviteId: string
 	margin?: { top?: string; bottom?: string }
 	textShadow?: boolean
+	hideTitles?: boolean
 }
 
 const ConfirmationForm = (props: Props) => {
@@ -62,6 +63,7 @@ const ConfirmationForm = (props: Props) => {
 						$font={font}
 						$secondary={secondary}
 						className="mb-1"
+						style={{ display: props?.hideTitles ? 'none' : 'block' }}
 					>
 						¡Anotate!
 					</SecondaryCopy>
@@ -88,6 +90,7 @@ const ConfirmationForm = (props: Props) => {
 						$font={font}
 						$secondary={secondary}
 						className="mb-1"
+						style={{ display: props?.hideTitles ? 'none' : 'block' }}
 					>
 						¡No faltes!
 					</SecondaryCopy>
@@ -198,7 +201,7 @@ export const SecondaryCopy = styled.p<{
 	line-height: 1.2;
 	text-align: center;
 	margin-bottom: 6rem;
-	max-width: 15ch;
+	max-width: 80%;
 	text-shadow: ${({ $textShadow }) =>
 		$textShadow ? '0 0.5rem #ffffff, 1rem 1rem 1rem rgba(0, 0, 0, 0.2)' : 'none'};
 	position: relative;
@@ -206,7 +209,7 @@ export const SecondaryCopy = styled.p<{
 	margin-right: auto;
 
 	&.mb-1 {
-		margin-bottom: 2rem !important;
+		margin-bottom: 4rem !important;
 	}
 `
 

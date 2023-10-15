@@ -9,7 +9,7 @@ export const FORMAL_THEME = {
 }
 
 export const AstroPartyRoot = styled.div`
-	background: radial-gradient(circle, rgba(32, 39, 106, 1) 1%, rgba(22, 26, 66, 1) 100%);
+	background: radial-gradient(circle, rgba(29, 33, 79, 1) 1%, rgba(15, 18, 50, 1) 100%);
 `
 
 export const AstroPartyContent = styled.div`
@@ -75,15 +75,16 @@ export const HeaderContainer = styled.div`
 		z-index: 3;
 
 		&-title {
-			font-size: 30rem;
+			font-size: 20rem;
 			font-weight: 600;
 			line-height: 0.8;
 			color: ${FORMAL_THEME.primary};
 		}
 
 		&-subtitle {
-			font-size: 20rem;
+			font-size: 9rem;
 			line-height: 0.5;
+			min-width: 30ch;
 			color: ${FORMAL_THEME.primary};
 		}
 	}
@@ -124,11 +125,11 @@ export const HeaderContainer = styled.div`
 
 export const BodyText = styled.p`
 	font-family: 'Raleway';
-	font-size: 3rem;
+	font-size: 2.5rem;
 	text-align: center;
 	color: ${FORMAL_THEME.white};
 	font-weight: 200;
-	max-width: 22ch;
+	max-width: 35ch;
 	z-index: 4;
 	line-height: 1.2;
 
@@ -140,12 +141,12 @@ export const BodyText = styled.p`
 
 export const TitleText = styled.h3`
 	font-family: 'Geraldin';
-	font-size: 8rem;
+	font-size: 4rem;
 	text-align: center;
 	color: ${FORMAL_THEME.secondary};
-	max-width: 14ch;
+	max-width: 10ch;
 	z-index: 4;
-	line-height: 1;
+	line-height: 0.9;
 
 	&.name {
 		font-size: 12rem;

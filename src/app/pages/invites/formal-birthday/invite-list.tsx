@@ -11,7 +11,7 @@ import {
 	FORMAL_THEME
 } from './styles'
 import Space from '../../../components/space'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { User } from '../../../../firebase/app'
 import useConfirmationForm from '../../../../hooks/useConfirmationForm'
@@ -20,11 +20,12 @@ import { Button } from '../../../components/confirmation-form'
 const validInvites = ['antonio-juarez']
 
 const FormalBirthdayList = () => {
-	const { inviteId, refetch = 'false' } = useParams()
-	const { actions, users = [] } = useConfirmationForm(inviteId)
+	const location = useLocation()
+	const { inviteId } = useParams()
 	const navigation = useNavigate()
-	const rendered = useRef<boolean>(false)
+	const { actions, users = [] } = useConfirmationForm(inviteId)
 	const [buttonText, setButtonText] = useState('Copiar link de la invitación')
+	const rendered = useRef<boolean>(false)
 
 	useEffect(() => {
 		if (!inviteId || !validInvites.includes(inviteId)) navigation('/')
@@ -34,10 +35,11 @@ const FormalBirthdayList = () => {
 		if (!rendered.current) {
 			;(async () => {
 				rendered.current = true
+				const refetch = new URLSearchParams(location.search).get('refetch')
 				actions.fetchUsers({ refetch: refetch === 'true' })
 			})()
 		}
-	}, [refetch])
+	}, [location])
 
 	const onClick = (path: string) => {
 		window.open(path, '_blank')
