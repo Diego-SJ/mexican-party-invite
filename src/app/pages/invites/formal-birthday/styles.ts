@@ -83,7 +83,7 @@ export const HeaderContainer = styled.div`
 
 		&-subtitle {
 			font-size: 9rem;
-			line-height: 0.5;
+			line-height: 1;
 			min-width: 30ch;
 			color: ${FORMAL_THEME.primary};
 		}
@@ -129,7 +129,7 @@ export const BodyText = styled.p`
 	text-align: center;
 	color: ${FORMAL_THEME.white};
 	font-weight: 200;
-	max-width: 35ch;
+	max-width: 28ch;
 	z-index: 4;
 	line-height: 1.2;
 

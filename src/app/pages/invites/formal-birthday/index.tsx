@@ -46,12 +46,12 @@ const FormalBirthday = () => {
 					</HeaderContainer>
 				</Fade>
 				<Fade cascade damping={0.2}>
-					<Space height={isTablet ? '3rem' : '8rem'} />
-					<TitleText>El tiempo enriquece nuestras vidas con momentos preciosos.</TitleText>
+					<Space height={isTablet ? '1rem' : '8rem'} />
+					<TitleText>El tiempo enriquece nuestras vidas con momentos preciosos</TitleText>
 					<Space height="5rem" />
 					<BodyText>¡Acompáñanos para celebrar su 50º cumpleaños de recuerdos y amistad!</BodyText>
 					<Space height="5rem" />
-					<BodyText>Te esperamos el 22 de Octubre</BodyText>
+					<BodyText>Te esperamos el 22 de Octubre de 2023</BodyText>
 					<Space height="5rem" />
 					<TimerContainer>
 						<TimerItem>
@@ -79,11 +79,19 @@ const FormalBirthday = () => {
 						¡Te esperamos!
 						<br />
 						<br />
-						Queremos hacer de este día un momento inolvidable.
+						Queremos hacer de este día un momento inolvidable
 					</TitleText>
 
+					<Space height="5rem" />
+					<BodyText style={{ maxWidth: '33ch' }}>
+						Cincuenta años de sabiduría, cincuenta años de alegría. Celebremos juntos la vida de
+						Antonio Juárez
+					</BodyText>
+					<Space height="5rem" />
+					<TitleText>Su amistad y amor son los mejores regalos que podría recibir</TitleText>
+					<Space height="7rem" />
 					<ConfirmationForm
-						margin={{ top: '5rem' }}
+						// margin={{ top: '5rem' }}
 						font="Raleway"
 						locationUrl="https://maps.google.com/?q=20.297544,-99.176628"
 						inviteId={inviteId || ''}
@@ -91,12 +99,6 @@ const FormalBirthday = () => {
 						hideTitles
 						colors={{ secondary: FORMAL_THEME.secondary, primary: FORMAL_THEME.primary }}
 					/>
-
-					<Space height="8rem" />
-					<BodyText>¡Acompáñanos para celebrar su 50º cumpleaños de recuerdos y amistad!</BodyText>
-					<Space height="5rem" />
-					<TitleText>Su amistad y amor son los mejores regalos que podría recibir.</TitleText>
-					<Space height="5rem" />
 				</Fade>
 			</AstroPartyContent>
 			<HeaderImage className="footer" />

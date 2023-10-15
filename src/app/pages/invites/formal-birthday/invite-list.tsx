@@ -69,7 +69,7 @@ const FormalBirthdayList = () => {
 				<Space height="3rem" />
 				{users?.length ? (
 					<BodyText className="sm">
-						* Puedes comunicarte con tus invitados dando click en las tarjetas
+						* Puedes comunicarte con tus invitados vía whatsapp dando click en su nombre
 					</BodyText>
 				) : null}
 				<Space height="2rem" />
