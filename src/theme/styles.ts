@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 import MexicanTequila from '../assets/fonts/MexicanTequila.ttf'
 import Lithos from '../assets/fonts/Lithos.otf'
 import Nasa from '../assets/fonts/nasa.ttf'
+import Geraldin from '../assets/fonts/Geraldin.ttf'
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -18,6 +19,13 @@ const GlobalStyle = createGlobalStyle`
   font-family: 'Nasa';
   src: url(${Nasa});
 }
+
+@font-face {
+  font-family: 'Geraldin';
+  src: url(${Geraldin});
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@400;500;600;700&display=swap');
 
 
 :root {
@@ -91,7 +99,6 @@ z-index: 1;
 
 .invite-content {
   height: 100%;
-  min-height: 100vh;
   min-width: 45rem;
 	max-width: 80rem;
 	display: flex;

@@ -42,8 +42,9 @@ const useConfirmationForm = (inviteId = 'general_test') => {
 		}))
 	}
 
-	const fetchUsers = async () => {
-		const result = await getUsers({ refetch: false })
+	const fetchUsers = async (props?: { refetch?: boolean }) => {
+		let result = await getUsers({ refetch: props?.refetch || false })
+		result = result?.filter((i) => i?.inviteId === inviteId)
 		setStoredUsers(result)
 	}
 

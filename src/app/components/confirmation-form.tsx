@@ -48,10 +48,10 @@ const ConfirmationForm = (props: Props) => {
 						$secondary={secondary}
 						className="pink mb-1"
 					>
-						¡Ya estás dentro!
+						¡Asistencia confirmada!
 					</SecondaryCopy>
 					<Button onClick={onLocationClick} $secondary={secondary} $primary={primary} $font={font}>
-						¡Ver ubicación!
+						Ver ubicación
 					</Button>
 				</>
 			)}
@@ -70,7 +70,6 @@ const ConfirmationForm = (props: Props) => {
 					<ActionsButtons>
 						<Button
 							onClick={form.submit}
-							className="bg-secondary"
 							disabled={form.disableButton || loading}
 							$secondary={secondary}
 							$primary={primary}
@@ -94,7 +93,7 @@ const ConfirmationForm = (props: Props) => {
 					</SecondaryCopy>
 					<ActionsButtons>
 						<Button onClick={form.open} $secondary={secondary} $primary={primary} $font={font}>
-							¡Confirmar asistencia!
+							Confirmar asistencia
 						</Button>
 					</ActionsButtons>
 				</>

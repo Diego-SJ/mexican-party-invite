@@ -156,11 +156,12 @@ export const Image = styled.img`
 	}
 
 	&.astronaut-3 {
-		position: relative;
-		min-width: 100vw;
-		max-width: 100vw;
+		position: absolute;
+		min-width: 50rem;
+		max-width: 50rem;
 		filter: drop-shadow(0 0 4rem rgba(0, 0, 0, 0.4));
-		bottom: -15rem;
+		bottom: -60rem;
 		z-index: -2;
+		transform: rotate(0);
 	}
 `

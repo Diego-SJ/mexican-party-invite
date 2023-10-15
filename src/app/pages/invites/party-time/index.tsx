@@ -15,10 +15,24 @@ import BounceBall from '../../../components/bounce-ball'
 import PoweredBy from '../../../components/powered-by'
 import { Bounce } from 'react-awesome-reveal'
 import ConfirmationForm from '../../../components/confirmation-form'
+// import useTimer from '../../../../hooks/useTimer'
+import { useParams } from 'react-router-dom'
+import { PARTY_TIME_DATA } from './tempInvites'
+
+type Params = {
+	invite: string
+}
 
 const PartyTime = () => {
 	// const { showConfetti, showForm, showButton, loading, form } = useConfirmationForm()
+	const { invite } = useParams<Params>()
+
+	const data = PARTY_TIME_DATA.default
+
+	// const time = useTimer(data.date)
 	const bottom = useRef<HTMLLabelElement>(null)
+
+	console.log(data, invite)
 
 	const particlesInit = useCallback(async (engine: any) => {
 		await loadSlim(engine)
@@ -160,7 +174,10 @@ const PartyTime = () => {
 			<PartyTimeContainer>
 				<Bounce cascade damping={0.3}>
 					<PartyTimeTitle className="rainbow-text">
-						<Char idx={1}>¡</Char>
+						{data?.name
+							?.split('')
+							?.map((char, idx) => (char === '' ? ' ' : <Char idx={idx + 1}>{char}</Char>))}
+						{/* <Char idx={1}>¡</Char>
 						<Char idx={2}>P</Char>
 						<Char idx={3}>A</Char>
 						<Char idx={4}>R</Char>
@@ -169,7 +186,7 @@ const PartyTime = () => {
 						<Char idx={8}>I</Char>
 						<Char idx={9}>M</Char>
 						<Char idx={10}>E</Char>
-						<Char idx={11}>!</Char>
+						<Char idx={11}>!</Char> */}
 					</PartyTimeTitle>
 
 					<PrimaryCopy>
@@ -196,6 +213,7 @@ const PartyTime = () => {
 						</DateContainer>
 						<BounceBall />
 					</DateTimeContainer>
+					<PrimaryCopy>Faltan:</PrimaryCopy>
 					<ConfirmationForm
 						locationUrl="https://maps.app.goo.gl/zdSUicChCjNbJbAJ8"
 						inviteId="general_test"

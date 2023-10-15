@@ -19,7 +19,8 @@ const colors = [
 	'#5cbe00',
 	'#ffca00',
 	'#7c0d84',
-	'#ff1067'
+	'#ff1067',
+	'#00c1f3'
 ]
 
 export const PartyTimeRoot = styled.div`
@@ -422,4 +423,9 @@ export const UserCardContent = styled.div`
 		font-family: 'Dela Gothic One';
 		color: ${PALLETE.pink};
 	}
+`
+
+export const TimerContainer = styled.div`
+	display: grid;
+	grid-template-columns: 2fr;
 `
