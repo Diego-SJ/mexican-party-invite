@@ -59,7 +59,7 @@ const FormalBirthdayList = () => {
 
 			<AstroPartyContent className="invite-content">
 				<Space height="15rem" />
-				<TitleText>Antonio Juárez</TitleText>
+				<TitleText className="name">Antonio Juárez</TitleText>
 				<Space height="3rem" />
 				<BodyText>
 					{!!users?.length
