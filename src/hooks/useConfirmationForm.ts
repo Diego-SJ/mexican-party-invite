@@ -36,6 +36,7 @@ const useConfirmationForm = (inviteId = 'general_test') => {
 	}
 
 	const onFormChange = (e: ChangeEvent<HTMLInputElement>) => {
+		if (e?.target?.name === 'phone' && isNaN(Number(e?.target?.value))) return null
 		setFormData((prev) => ({
 			...prev,
 			[e.target.name]: e?.target?.value || ''

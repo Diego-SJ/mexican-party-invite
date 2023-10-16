@@ -4,6 +4,7 @@ import ConfettiExplosion from 'react-confetti-explosion'
 import PartyPopperImg from '../../assets/images/party-popper.png'
 import { PALLETE } from '../pages/invites/party-time/styles'
 import Space from '../components/space'
+import { atcb_action } from 'add-to-calendar-button'
 
 type Props = {
 	locationUrl?: string
@@ -14,20 +15,42 @@ type Props = {
 	margin?: { top?: string; bottom?: string }
 	textShadow?: boolean
 	hideTitles?: boolean
+	calendar?: {
+		name: string
+		startDate: string
+		startTime: string
+		endTime: string
+	}
 }
 
 const ConfirmationForm = (props: Props) => {
 	const { showConfetti, showForm, showButton, loading, form } = useConfirmationForm(props.inviteId)
 	const { locationUrl, finalImageUrl, colors, font = 'Dela Gothic One', margin } = props
-	const { textShadow = true } = props
 	const { primary = PALLETE.pink, secondary = PALLETE.green } = colors ?? {}
+	const { textShadow = true, calendar } = props
 
 	const onLocationClick = () => {
 		window.open(locationUrl || 'https://maps.app.goo.gl/zdSUicChCjNbJbAJ8', '_blank')
 	}
 
+	const saveCalendarEvent = (e: any) => {
+		let configuration = {
+			name: calendar?.name || 'Fiesta de cumpleaños',
+			location: locationUrl,
+			description: `📍 Ubicaciön: ${locationUrl}[br][br]❤️ ¿Te gustaría una invitación como esta? Visita https://happy-hop.com para obtener más información.`,
+			startDate: calendar?.startDate,
+			startTime: calendar?.startTime,
+			endTime: calendar?.endTime,
+			options: ['Apple', 'Google', 'Outlook.com'],
+			hideBackground: true,
+			customLabels: { close: 'Cancelar' }
+		}
+
+		atcb_action(configuration, e.target)
+	}
+
 	return (
-		<>
+		<ConfirmationFormRoot>
 			{!!margin?.top && <Space height={margin?.top} />}
 			{showConfetti && (
 				<>
@@ -54,8 +77,18 @@ const ConfirmationForm = (props: Props) => {
 					<Button onClick={onLocationClick} $secondary={secondary} $primary={primary} $font={font}>
 						Ver ubicación
 					</Button>
+					<Space height="4rem" />
+					<Button
+						onClick={saveCalendarEvent}
+						$secondary={secondary}
+						$primary={primary}
+						$font={font}
+					>
+						Agregar al calendario
+					</Button>
 				</>
 			)}
+
 			{showForm && (
 				<Form>
 					<SecondaryCopy
@@ -102,9 +135,15 @@ const ConfirmationForm = (props: Props) => {
 				</>
 			)}
 			{!!margin?.bottom && <Space height={margin?.bottom} />}
-		</>
+		</ConfirmationFormRoot>
 	)
 }
+
+const ConfirmationFormRoot = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`
 
 export const Confetti = styled.div`
 	position: relative;

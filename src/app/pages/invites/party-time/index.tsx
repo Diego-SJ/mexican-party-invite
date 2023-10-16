@@ -213,8 +213,14 @@ const PartyTime = () => {
 						</DateContainer>
 						<BounceBall />
 					</DateTimeContainer>
-					<PrimaryCopy>Faltan:</PrimaryCopy>
+					{/* <PrimaryCopy>Faltan:</PrimaryCopy> */}
 					<ConfirmationForm
+						calendar={{
+							name: 'Party time',
+							startDate: '2023-10-26',
+							startTime: '13:00',
+							endTime: '16:00'
+						}}
 						locationUrl="https://maps.app.goo.gl/zdSUicChCjNbJbAJ8"
 						inviteId="general_test"
 					/>

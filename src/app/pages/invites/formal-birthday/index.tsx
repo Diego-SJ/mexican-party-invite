@@ -91,7 +91,12 @@ const FormalBirthday = () => {
 					<TitleText>Su amistad y amor son los mejores regalos que podría recibir</TitleText>
 					<Space height="7rem" />
 					<ConfirmationForm
-						// margin={{ top: '5rem' }}
+						calendar={{
+							name: '50 años | Antonio Juárez',
+							startDate: '2023-10-22',
+							startTime: '14:00',
+							endTime: '17:00'
+						}}
 						font="Raleway"
 						locationUrl="https://maps.google.com/?q=20.297544,-99.176628"
 						inviteId={inviteId || ''}
