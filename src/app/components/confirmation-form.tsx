@@ -43,7 +43,8 @@ const ConfirmationForm = (props: Props) => {
 			endTime: calendar?.endTime,
 			options: ['Apple', 'Google', 'Outlook.com'],
 			hideBackground: true,
-			customLabels: { close: 'Cancelar' }
+			customLabels: { close: 'Cancelar' },
+			timeZone: 'currentBrowser'
 		}
 
 		atcb_action(configuration, e.target)
